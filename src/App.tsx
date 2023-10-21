@@ -1,12 +1,30 @@
+import { useState } from "react";
 import Alert from "./components/Alert";
+import Button from "./components/Button";
 import ListGroup from "./components/ListGroup";
 
 function App() {
+  const [visibility, setVisibility] = useState(false);
   return (
     <div>
-      <Alert>
-        Hello <span>World</span>
-      </Alert>
+      {visibility && <Alert onClose={() => setVisibility(false)}>Hello</Alert>}
+      <Button
+        color="success"
+        onCLick={() => {
+          setVisibility(true);
+        }}
+      >
+        Btn Sucess
+      </Button>
+
+      <Button
+        color="danger"
+        onCLick={() => {
+          setVisibility(true);
+        }}
+      >
+        Btn Sucess
+      </Button>
     </div>
   );
 }
